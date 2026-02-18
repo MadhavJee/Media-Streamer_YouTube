@@ -5,36 +5,20 @@ import Upload from './Pages/Upload';
 import Trending from './Pages/Trending';
 import Suggestions from './Pages/Suggestions';
 import { Routes, Route } from 'react-router-dom';
-import Navbar from './Components/Navbar';
+import Navbar from './Components/NavBar';
 import Sidebar from './Components/Sidebar';
 import { useState } from 'react';
-
-// const Layout = ({ children, search, setSearch, onSearch }) => (
-//   <div className="flex min-h-screen bg-black">
-//     <Sidebar />
-//     <div className="flex-1 flex flex-col">
-//       <Navbar search={search} setSearch={setSearch} onSearch={onSearch} />
-//       <main className="flex-1 overflow-y-auto">{children}</main>
-//     </div>
-//   </div>
-// );
 
 const Layout = ({ children, search, setSearch, onSearch }) => (
   <div className="flex min-h-screen bg-black">
     <Sidebar />
-
     <div className="flex-1 flex flex-col">
       <Navbar search={search} setSearch={setSearch} onSearch={onSearch} />
-
-      <main className="flex-1 w-full overflow-y-auto">
-        <div className="w-full p-6">
-          {children}
-        </div>
-      </main>
-
+      <main className="flex-1 overflow-y-auto">{children}</main>
     </div>
   </div>
 );
+
 
 function App() {
   const [search, setSearch] = useState('');
