@@ -40,17 +40,26 @@ const TRENDING_VIDEOS = [
 ];
 
 const TrendingVideoCard = ({ video }) => (
-  <div className="bg-zinc-900 rounded-lg shadow hover:shadow-lg transition border border-zinc-800">
-    <img
-      src={video.thumbnail}
-      alt={video.title}
-      className="w-full h-48 object-cover rounded-t-lg"
-    />
+  <div className="bg-gradient-to-b from-slate-900 to-slate-950 rounded-xl shadow-lg hover:shadow-2xl hover:shadow-red-500/20 transition duration-300 border border-slate-700 hover:border-red-500 group overflow-hidden">
+    <div className="relative overflow-hidden">
+      <img
+        src={video.thumbnail}
+        alt={video.title}
+        className="w-full h-48 object-cover rounded-t-xl group-hover:scale-105 transition duration-300"
+      />
+      <div className="absolute inset-0 bg-black group-hover:bg-black/40 transition duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100">
+        <div className="bg-red-600 rounded-full p-3">
+          <svg className="w-6 h-6 text-white fill-white" viewBox="0 0 20 20">
+            <path d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z" />
+          </svg>
+        </div>
+      </div>
+    </div>
     <div className="p-3">
-      <h2 className="font-semibold text-lg mb-1 line-clamp-2 text-white">
+      <h2 className="font-semibold text-lg mb-1 line-clamp-2 text-white group-hover:text-red-400 transition">
         {video.title}
       </h2>
-      <p className="text-gray-400 text-sm line-clamp-2">{video.channel}</p>
+      <p className="text-gray-400 text-sm line-clamp-2 group-hover:text-gray-300 transition">{video.channel}</p>
     </div>
   </div>
 );

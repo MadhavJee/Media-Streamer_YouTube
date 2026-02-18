@@ -12,13 +12,13 @@ const Sidebar = () => {
   ];
 
   return (
-    <aside className="h-full w-48 bg-black shadow-md flex flex-col py-4 border-r border-zinc-800 min-w-\[3.5rem] sm:min-w-\[12rem]">
+    <aside className="h-full w-48 bg-gradient-to-b from-slate-900 to-black shadow-xl flex flex-col py-4 border-r border-slate-800 min-w-[3.5rem] sm:min-w-[12rem]">
       {navItems.map(item => (
         <NavLink
           key={item.name}
           to={item.path}
           className={({ isActive }) =>
-            `flex items-center gap-3 px-6 py-3 text-lg text-gray-300 hover:bg-zinc-900 hover:text-white transition ${isActive ? 'bg-zinc-900 text-white font-bold' : ''}`
+            `flex items-center gap-3 px-6 py-3 text-lg transition ${isActive ? 'bg-gradient-to-r from-red-600 to-pink-600 text-white font-bold shadow-lg shadow-red-500/50' : 'text-gray-300 hover:bg-slate-800 hover:text-white'}`
           }
         >
           {item.name}

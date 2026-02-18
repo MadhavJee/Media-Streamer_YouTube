@@ -85,13 +85,13 @@ const Watch = () => {
   }
 
   return (
-    <div className="p-4 flex flex-col md:flex-row items-start bg-black min-h-screen gap-8">
+    <div className="p-4 flex flex-col md:flex-row items-start bg-gradient-to-b from-black to-slate-950 min-h-screen gap-8">
       {/* Main Video Section */}
       <div className="flex-1 flex flex-col items-center">
-        <div className="w-full max-w-3xl aspect-video bg-black mb-4 flex items-center justify-center rounded-lg border border-zinc-800 relative">
+        <div className="w-full max-w-3xl aspect-video bg-black mb-4 flex items-center justify-center rounded-xl border border-slate-700 relative shadow-xl">
           {state.videoId ? (
             <iframe
-              className="w-full h-full rounded-lg"
+              className="w-full h-full rounded-xl"
               src={videoSrc}
               title={title}
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"

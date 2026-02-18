@@ -6,10 +6,10 @@ import '../index.css';
 const Navbar = ({ search, setSearch, onSearch }) => {
   const navigate = useNavigate();
   return (
-    <nav className="flex flex-col sm:flex-row items-center justify-between px-4 py-2 bg-black shadow-md w-full border-b border-zinc-800">
+    <nav className="flex flex-col sm:flex-row items-center justify-between px-4 py-3 bg-gradient-to-r from-black via-slate-900 to-black shadow-xl w-full border-b border-slate-800">
       {/* Left: Logo */}
       <div className="flex items-center gap-2 mb-2 sm:mb-0">
-        <span className="font-bold text-xl text-white">CloneTube</span>
+        <span className="font-bold text-2xl bg-gradient-to-r from-red-500 to-pink-500 bg-clip-text text-transparent">WatchTube</span>
       </div>
 
       {/* Middle: Search Bar */}
@@ -22,13 +22,13 @@ const Navbar = ({ search, setSearch, onSearch }) => {
           value={search}
           onChange={e => setSearch(e.target.value)}
           placeholder="Search"
-          className="border border-gray-700 bg-zinc-900 text-white rounded-l-full px-4 py-1 w-full focus:outline-none"
+          className="border border-zinc-700 bg-slate-900 text-white rounded-l-full px-4 py-2 w-full focus:outline-none focus:border-slate-600 transition focus:ring-0"
         />
         <button
           type="submit"
-          className="bg-gray-800 border border-gray-700 border-l-0 rounded-r-full px-4 flex items-center"
+          className="bg-red-600 hover:bg-red-700 border border-slate-700 border-l-0 rounded-r-full px-5 flex items-center transition font-semibold text-white"
         >
-          <span className="text-white">Search</span>
+          <span>Search</span>
         </button>
       </form>
 

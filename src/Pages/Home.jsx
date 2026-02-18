@@ -48,7 +48,7 @@ const Home = ({
 
   if (loading) {
     return (
-      <div className="p-4 min-h-screen bg-black flex flex-col">
+      <div className="p-4 min-h-screen bg-gradient-to-b from-black to-slate-950 flex flex-col">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 flex-1">
           {Array.from({ length: 12 }).map((_, i) => (
             <ShimmerCard key={i} />
@@ -56,14 +56,14 @@ const Home = ({
         </div>
         <div className="flex justify-center gap-4 mt-8">
           <button
-            className="px-4 py-2 rounded bg-zinc-800 text-white disabled:opacity-50"
+            className="px-6 py-3 rounded-lg bg-gradient-to-r from-slate-700 to-slate-800 text-white disabled:opacity-50 disabled:cursor-not-allowed hover:from-slate-600 hover:to-slate-700 transition font-semibold"
             disabled
           >
             Previous
           </button>
-          <span className="text-white font-semibold">Page {currentPage}</span>
+          <span className="text-white font-semibold text-lg py-3">Page {currentPage}</span>
           <button
-            className="px-4 py-2 rounded bg-zinc-800 text-white disabled:opacity-50"
+            className="px-6 py-3 rounded-lg bg-gradient-to-r from-slate-700 to-slate-800 text-white disabled:opacity-50 disabled:cursor-not-allowed hover:from-slate-600 hover:to-slate-700 transition font-semibold"
             disabled
           >
             Next
@@ -75,12 +75,12 @@ const Home = ({
   if (error) return <div className="p-4 text-red-500">{error}</div>;
 
   return (
-    <div className="p-4 min-h-screen bg-black flex flex-col">
+    <div className="p-4 min-h-screen bg-gradient-to-b from-black to-slate-950 flex flex-col">
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 flex-1">
         {videos.map(video => (
           <div
             key={video.id.videoId}
-            className="bg-zinc-900 rounded-lg shadow hover:shadow-lg transition border border-zinc-800 cursor-pointer"
+            className="bg-gradient-to-b from-slate-900 to-slate-950 rounded-xl shadow-lg hover:shadow-2xl hover:shadow-red-500/20 transition duration-300 border border-slate-700 hover:border-red-500 cursor-pointer group"
             onClick={() =>
               navigate(`/watch?v=${video.id.videoId}`, {
                 state: {
@@ -95,16 +95,25 @@ const Home = ({
               })
             }
           >
-            <img
-              src={video.snippet.thumbnails.medium.url}
-              alt={video.snippet.title}
-              className="w-full h-48 object-cover rounded-t-lg"
-            />
+            <div className="relative overflow-hidden rounded-t-xl">
+              <img
+                src={video.snippet.thumbnails.medium.url}
+                alt={video.snippet.title}
+                className="w-full h-48 object-cover group-hover:scale-105 transition duration-300"
+              />
+              <div className="absolute inset-0 bg-black group-hover:bg-black/40 transition duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100">
+                <div className="bg-red-600 rounded-full p-3">
+                  <svg className="w-6 h-6 text-white fill-white" viewBox="0 0 20 20">
+                    <path d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z" />
+                  </svg>
+                </div>
+              </div>
+            </div>
             <div className="p-3">
-              <h2 className="font-semibold text-lg mb-1 line-clamp-2 text-white">
+              <h2 className="font-semibold text-lg mb-1 line-clamp-2 text-white group-hover:text-red-400 transition">
                 {video.snippet.title}
               </h2>
-              <p className="text-gray-400 text-sm line-clamp-2">
+              <p className="text-gray-400 text-sm line-clamp-2 group-hover:text-gray-300 transition">
                 {video.snippet.channelTitle}
               </p>
             </div>
@@ -113,15 +122,15 @@ const Home = ({
       </div>
       <div className="flex justify-center gap-4 mt-8">
         <button
-          className="px-4 py-2 rounded bg-zinc-800 text-white disabled:opacity-50"
+          className="px-6 py-3 rounded-lg bg-gradient-to-r from-red-600 to-pink-600 text-white disabled:opacity-50 disabled:cursor-not-allowed hover:from-red-700 hover:to-pink-700 transition font-semibold shadow-lg hover:shadow-red-500/50"
           onClick={() => onPageChange(prevPageToken, -1)}
           disabled={!prevPageToken || currentPage === 1}
         >
           Previous
         </button>
-        <span className="text-white font-semibold">Page {currentPage}</span>
+        <span className="text-white font-semibold text-lg py-3">Page {currentPage}</span>
         <button
-          className="px-4 py-2 rounded bg-zinc-800 text-white disabled:opacity-50"
+          className="px-6 py-3 rounded-lg bg-gradient-to-r from-red-600 to-pink-600 text-white disabled:opacity-50 disabled:cursor-not-allowed hover:from-red-700 hover:to-pink-700 transition font-semibold shadow-lg hover:shadow-red-500/50"
           onClick={() => onPageChange(nextPageToken, 1)}
           disabled={!nextPageToken}
         >
