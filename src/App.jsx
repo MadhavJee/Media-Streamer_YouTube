@@ -6,7 +6,7 @@ import Trending from './Pages/Trending';
 import Suggestions from './Pages/Suggestions';
 import { Routes, Route } from 'react-router-dom';
 import Navbar from './Components/NavBar';
-import Sidebar from './Components/Sidebar';
+import Sidebar from './Components/SideBar';
 import { useState } from 'react';
 
 const Layout = ({ children, search, setSearch, onSearch }) => (
